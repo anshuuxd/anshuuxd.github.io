@@ -2,370 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>I'm Sorry, My Love 💌</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #ffdde1 0%, #ee9ca7 35%, #1b1b2f 100%);
-      color: #fff;
-      overflow: hidden;
-    }
-
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 60%);
-      pointer-events: none;
-    }
-
-    .container {
-      position: relative;
-      width: 95%;
-      max-width: 480px;
-      padding: 18px;
-      z-index: 2;
-    }
-
-    .card {
-      background: rgba(10, 10, 25, 0.82);
-      border-radius: 24px;
-      padding: 24px 20px 18px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(18px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(255,105,180,0.35), transparent 60%);
-      top: -90px;
-      right: -60px;
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.16);
-      margin-bottom: 10px;
-    }
-
-    .tag-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #ff7eb3;
-      box-shadow: 0 0 10px #ff7eb3;
-    }
-
-    h1 {
-      font-size: 26px;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .names {
-      font-size: 13px;
-      opacity: 0.8;
-      margin-bottom: 16px;
-    }
-
-    .names span {
-      font-weight: 600;
-    }
-
-    .typed {
-      min-height: 70px;
-      font-size: 14px;
-      line-height: 1.7;
-      opacity: 0.96;
-      margin-bottom: 14px;
-      white-space: pre-line;
-    }
-
-    .highlight {
-      color: #ffb6e6;
-      font-weight: 600;
-    }
-
-    .tiny {
-      font-size: 11px;
-      opacity: 0.7;
-    }
-
-    .actions {
-      margin-top: 8px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary, .btn-ghost {
-      flex: 1;
-      border-radius: 999px;
-      padding: 10px 12px;
-      font-size: 13px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      box-shadow: 0 10px 26px rgba(255, 118, 158, 0.55);
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .btn-primary:active {
-      transform: translateY(1px) scale(0.98);
-      box-shadow: 0 6px 16px rgba(255, 118, 158, 0.45);
-    }
-
-    .btn-ghost {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #fefefe;
-    }
-
-    .btn-ghost:active {
-      transform: translateY(1px) scale(0.98);
-    }
-
-    .forgive-message {
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 16px;
-      font-size: 13px;
-      line-height: 1.6;
-      background: rgba(17, 230, 140, 0.07);
-      border: 1px solid rgba(17, 230, 140, 0.25);
-      display: none;
-    }
-
-    .forgive-message strong {
-      color: #8ef5c3;
-    }
-
-    .footer-note {
-      margin-top: 16px;
-      text-align: center;
-      font-size: 10px;
-      opacity: 0.6;
-    }
-
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      width: 18px;
-      height: 18px;
-      transform: rotate(-45deg);
-      background: #ff6b9c;
-      animation: floatUp 7s linear infinite;
-      opacity: 0.68;
-      z-index: 1;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      background: #ff6b9c;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -9px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 9px;
-      top: 0;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(-45deg) scale(0.7);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(-45deg) scale(1.1);
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .card {
-        padding: 20px 16px 16px;
-        border-radius: 22px;
-      }
-      h1 {
-        font-size: 22px;
-      }
-      .typed {
-        font-size: 13px;
-      }
-    }
-  </style>
+  <title>I'm Sorry ❤️</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="overlay"></div>
-
-  <div class="container">
-    <div class="card">
-      <div class="tag">
-        <span class="tag-dot"></span>
-        <span>for you, my favourite human</span>
-      </div>
-
-      <!-- EDIT THESE NAMES ONLY -->
-      <h1>I'm sorry, <span class="highlight" id="herName">my love</span> 🫶</h1>
-      <p class="names">
-        From <span id="myName">someone who can't stop thinking about you</span>
-      </p>
-
-      <p class="typed" id="typedText"></p>
-
-      <p class="tiny">
-        If this page opened on your phone, it means I was missing you a little
-        <span class="highlight">too much</span> and words on WhatsApp were not enough.
-      </p>
-
-      <div class="actions">
-        <button class="btn-primary" id="forgiveBtn">
-          💗 Tap if you forgive me
-        </button>
-        <button class="btn-ghost" id="moreBtn">
-          Read one more line ✨
-        </button>
-      </div>
-
-      <div class="forgive-message" id="forgiveMessage">
-        <strong>Thank you for forgiving me. 💖</strong><br />
-        I promise to try harder, to listen better, and to never forget how lucky I am
-        to have you. Screenshot this and keep it — whenever you're angry,
-        remember this pagal person who made a whole website just to say sorry.
-      </div>
-
-      <div class="footer-note">
-        Made with a very guilty heart and a lot of love.
-      </div>
+  <div class="nav">
+    <a href="index.html" class="logo">For You 💌</a>
+    <div class="links">
+      <a href="song.html">Love Song</a>
+      <a href="game.html">Love Game</a>
     </div>
   </div>
 
-  <script>
-    // 👉 CHANGE THESE TEXTS FOR YOUR STORY
-    const herNameText   = "baby";     // e.g. "Jaan", "Princess", her nickname
-    const myNameText    = "your overthinking idiot 🙈";
-    const mainParagraphs = [
-      "I know I messed up.\nAnd maybe you are still angry.\nBut between my ego and you,\nI choose you. Every. Single. Time.",
-      "I hate the distance between us right now,\nespecially when it's created by my own words.\nYou didn't deserve that.\nI'm really, really sorry.",
-      "You are not just important to me,\nyou are my safe place.\nI can't lose that over a stupid mistake I made."
-    ];
+  <div class="hearts-bg"></div>
 
-    // Set names in the page
-    document.getElementById("herName").textContent = herNameText;
-    document.getElementById("myName").textContent = myNameText;
+  <main class="center-card">
+    <h1>Hey, My Love…</h1>
+    <p class="big-text">
+      I know I messed up.<br />
+      I know I hurt you.<br />
+      And I am really, really sorry. 💔
+    </p>
 
-    // Typewriter effect
-    const typedEl = document.getElementById("typedText");
-    let paraIndex = 0;
-    let charIndex = 0;
-    let currentText = mainParagraphs[paraIndex];
+    <p>
+      You mean so much to me. More than my ego, more than any fight, more than
+      any stupid mistake I make. I’m learning, I’m growing, and I’m trying every
+      day to be the person you deserve.
+    </p>
 
-    function typeWriter() {
-      if (charIndex <= currentText.length) {
-        typedEl.textContent = currentText.slice(0, charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 35);
-      }
-    }
-    typeWriter();
+    <p>
+      This little website is just my way of saying: <br />
+      <strong>please don’t stay mad at me… I love you so much. 💖</strong>
+    </p>
 
-    const moreBtn = document.getElementById("moreBtn");
-    moreBtn.addEventListener("click", () => {
-      if (paraIndex < mainParagraphs.length - 1) {
-        paraIndex++;
-        currentText = mainParagraphs[paraIndex];
-        charIndex = 0;
-        typedEl.textContent = "";
-        typeWriter();
-      } else {
-        // loop back to first paragraph
-        paraIndex = 0;
-        currentText = mainParagraphs[paraIndex];
-        charIndex = 0;
-        typedEl.textContent = "";
-        typeWriter();
-      }
-    });
+    <button onclick="location.href='song.html'" class="primary-btn">
+      Go to the love song 🎵
+    </button>
+    <button onclick="location.href='game.html'" class="ghost-btn">
+      Play a cute game 🎮
+    </button>
+  </main>
 
-    // Forgive button
-    const forgiveBtn = document.getElementById("forgiveBtn");
-    const forgiveMessage = document.getElementById("forgiveMessage");
-
-    forgiveBtn.addEventListener("click", () => {
-      forgiveMessage.style.display = "block";
-      spawnBurstHearts();
-    });
-
-    // Floating background hearts
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.bottom = "-20px";
-      heart.style.animationDuration = 6 + Math.random() * 4 + "s";
-      heart.style.opacity = 0.4 + Math.random() * 0.4;
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 10000);
-    }
-
-    function spawnBurstHearts() {
-      for (let i = 0; i < 18; i++) {
-        setTimeout(createHeart, i * 120);
-      }
-    }
-
-    setInterval(createHeart, 2000);
-  </script>
+  <footer>
+    Made with overthinking, late nights &amp; lots of love. 🥺💕
+  </footer>
 </body>
 </html>
