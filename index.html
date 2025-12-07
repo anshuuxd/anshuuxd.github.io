@@ -14,8 +14,9 @@
     <p>From Anshu, only for my Bhavu</p>
   </header>
 
+  <!-- top nav (keep this) -->
   <nav class="nav">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="song.html">Our Song</a>
     <a href="game.html">Love Game</a>
     <a href="countdown.html">Countdown</a>
@@ -44,30 +45,20 @@
       <p class="highlight">
         So this little website is my way of saying: I’m sorry, I love you, and I’m not going anywhere. 💖
       </p>
-    </section>
 
-    <section class="grid">
-      <a class="mini-card" href="song.html">
-        <h3>🎵 Our Love Song</h3>
-        <p>Play “Perfect” and think about us.</p>
-      </a>
-      <a class="mini-card" href="game.html">
-        <h3>🎮 Love Game</h3>
-        <p>Collect hearts for Anshu &amp; Bhavu.</p>
-      </a>
-      <a class="mini-card" href="countdown.html">
-        <h3>⏳ Anniversary Countdown</h3>
-        <p>Counting days till 10 January.</p>
-      </a>
-      <a class="mini-card" href="secret.html">
-        <h3>🔐 Secret Zone</h3>
-        <p>Code protected… try 4 special digits.</p>
-      </a>
+      <!-- BUTTONS INSTEAD OF UGLY LINKS -->
+      <div style="margin-top: 1.1rem; display:flex; flex-direction:column; gap:0.6rem; align-items:center;">
+        <a href="song.html" class="primary-btn">🎵 Our Love Song</a>
+        <a href="game.html" class="primary-btn">🎮 Love Game</a>
+        <a href="countdown.html" class="primary-btn">⏳ Anniversary Countdown</a>
+        <a href="secret.html" class="primary-btn">🔐 Secret Zone</a>
+      </div>
     </section>
   </main>
 
+  <!-- footer WITHOUT “PWA Demo” text -->
   <footer class="footer">
-  Made with ❤️ by Anshu for Bhavu
+    Made with ❤️ by Anshu for Bhavu
   </footer>
 
   <script src="app.js"></script>
