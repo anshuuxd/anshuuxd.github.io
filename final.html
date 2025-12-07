@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>I Love You, Bhavu ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Final Page, Infinite Love ♾️</h1>
+    <p>From Anshu to his forever person</p>
+  </header>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="song.html">Our Song</a>
+    <a href="game.html">Love Game</a>
+    <a href="countdown.html">Countdown</a>
+    <a href="secret.html">Secret</a>
+    <a href="final.html" class="active">Final Page</a>
+  </nav>
+
+  <main class="container fade-in">
+    <section class="card center">
+      <h2>I Love You, Bhavu ❤️</h2>
+      <p class="highlight">
+        From 10 January 2023… to every tomorrow after that…<br>
+        it’s always been you, it will always be you.
+      </p>
+      <p>
+        No matter how much time passes, no matter how many ups and downs,
+        I want to walk through all of it holding your hand. You are not
+        just my love, you are my best friend, my peace, my favourite human.
+      </p>
+      <p>
+        So here it is, simple and honest:
+        <strong>Main tumse bahut zyada pyaar karta hoon, Bhavu.</strong>
+      </p>
+      <div class="big-heart">💖</div>
+      <a href="index.html" class="primary-btn">Back to Home Page</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Reload this page whenever you need a reminder. 💗
+  </footer>
+
+  <script>
+    // Cute floating hearts animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.textContent = '💗';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 3 + Math.random() * 3 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 700);
+  </script>
+</body>
+</html>

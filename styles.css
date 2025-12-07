@@ -1,0 +1,122 @@
+/* === ANIMATED ROMANTIC THEME === */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg,#ff9a9e,#fecfef,#fbc2eb,#a18cd1);
+  background-size: 400% 400%;
+  animation: bgMove 16s ease infinite;
+  min-height: 100vh;
+  color: #3a243b;
+  overflow-x: hidden;
+}
+
+/* moving background */
+@keyframes bgMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* header */
+.header{
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.header h1{
+  display: inline-block;
+  padding: .35rem .9rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.25);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
+  to   { box-shadow: 0 0 28px rgba(255,255,255,1); }
+}
+
+/* navigation */
+.nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.nav a{
+  text-decoration: none;
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  background: white;
+  color: #b0175f;
+  transition: transform .2s ease;
+}
+
+.nav a:hover{
+  transform: scale(1.12);
+}
+
+/* cards */
+.container{
+  max-width: 720px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.card{
+  background: rgba(255,255,255,.93);
+  border-radius: 22px;
+  padding: 1.3rem;
+  box-shadow: 0 22px 45px rgba(255,0,128,.28);
+  animation: fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:none;}
+}
+
+.highlight{
+  margin-top: .7rem;
+  padding: .85rem;
+  border-radius: 15px;
+  background: #ffe9f4;
+  border: 1px dashed #ff7aa2;
+}
+
+/* buttons */
+.heart-btn{
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg,#ff7aa2,#ffb3c6);
+  color: white;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+
+/* floating hearts */
+.floating-heart{
+  position: fixed;
+  bottom:-25px;
+  animation: floatUp 5s linear;
+  pointer-events: none;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-120vh);opacity:0;}
+}

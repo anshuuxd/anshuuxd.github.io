@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Love Game 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Love Points for Us 💞</h1>
+    <p>Tap hearts for Anshu × Bhavu</p>
+  </header>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="song.html">Our Song</a>
+    <a href="game.html" class="active">Love Game</a>
+    <a href="countdown.html">Countdown</a>
+    <a href="secret.html">Secret</a>
+    <a href="final.html">Final Page</a>
+  </nav>
+
+  <main class="container fade-in">
+    <section class="card center">
+      <h2>Tap the Heart! 💗</h2>
+      <p>Score 50+ hearts to unlock a cute message.</p>
+      <div class="score-board">
+        <span>Score:</span>
+        <span id="score">0</span>
+      </div>
+      <button class="heart-btn" id="heartBtn">💖 Tap Me 💖</button>
+      <p id="message" class="highlight small"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Each tap = one “I love you” from Anshu.
+  </footer>
+
+  <script>
+    let score = 0;
+    const scoreEl = document.getElementById('score');
+    const msgEl = document.getElementById('message');
+    const btn = document.getElementById('heartBtn');
+
+    btn.addEventListener('click', () => {
+      score++;
+      scoreEl.textContent = score;
+      if (score === 10) {
+        msgEl.textContent = "Okay… you like me thoda sa 😉";
+      } else if (score === 25) {
+        msgEl.textContent = "Ab to pakka, you love me a lot 😍";
+      } else if (score >= 50 && score < 80) {
+        msgEl.textContent = "Officially confirmed: Anshu & Bhavu are endgame 💍";
+      } else if (score >= 80) {
+        msgEl.textContent = "Bas karo warna universe jealous ho jayega 💫";
+      }
+    });
+  </script>
+</body>
+</html>
