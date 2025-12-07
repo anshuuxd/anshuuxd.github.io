@@ -1,14 +1,16 @@
-/* === ANIMATED ROMANTIC THEME === */
+/* ===============================
+   ROMANTIC ANIMATED THEME
+   =============================== */
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg,#ff9a9e,#fecfef,#fbc2eb,#a18cd1);
+  background: linear-gradient(135deg, #ff9a9e, #fecfef, #fbc2eb, #a18cd1);
   background-size: 400% 400%;
   animation: bgMove 16s ease infinite;
   min-height: 100vh;
@@ -18,71 +20,78 @@ body{
   overflow-x: hidden;
 }
 
-/* moving background */
+/* animated background */
 @keyframes bgMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* header */
-.header{
+/* ===============================
+   HEADER
+   =============================== */
+.header {
   text-align: center;
-  padding: 1.5rem 1rem 0.5rem;
+  padding: 1.5rem 1rem 0.6rem;
 }
 
-.header h1{
+.header h1 {
   display: inline-block;
-  padding: .35rem .9rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 20px;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
   animation: glow 2s infinite alternate;
   font-size: 1.6rem;
 }
 
-.header p{
-  margin-top: 0.25rem;
+.header p {
+  margin-top: 0.3rem;
   opacity: 0.8;
+  font-size: 0.9rem;
 }
 
-@keyframes glow{
+@keyframes glow {
   from { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
   to   { box-shadow: 0 0 28px rgba(255,255,255,1); }
 }
 
-/* navigation */
-.nav{
+/* ===============================
+   NAV BAR
+   =============================== */
+.nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: .5rem;
-  padding: 0.7rem 0.5rem 0.4rem;
+  gap: 0.5rem;
+  padding: 0.6rem 0.5rem;
 }
 
-.nav a{
+.nav a {
   text-decoration: none;
-  padding: .45rem .9rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: white;
+  background: #fff;
   color: #b0175f;
   font-size: 0.8rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.nav a:hover{
+.nav a:hover {
   transform: scale(1.08);
   box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
-.nav a.active{
-  background: linear-gradient(135deg,#ff7aa2,#ffb3c6);
+.nav a.active {
+  background: linear-gradient(135deg, #ff7aa2, #ffb3c6);
   color: #fff;
   font-weight: 600;
 }
 
-/* layout */
-.container{
+/* ===============================
+   LAYOUT
+   =============================== */
+.container {
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
@@ -90,132 +99,102 @@ body{
   flex: 1;
 }
 
-.card{
-  background: rgba(255,255,255,.93);
+.card {
+  background: rgba(255,255,255,0.93);
   border-radius: 22px;
-  padding: 1.3rem 1.1rem;
-  box-shadow: 0 22px 45px rgba(255,0,128,.18);
-  animation: fadeUp .6s ease;
+  padding: 1.3rem 1.2rem;
+  box-shadow: 0 22px 45px rgba(255,0,128,0.18);
+  animation: fadeUp 0.6s ease;
 }
 
-.card h2{
+.card h2 {
   margin-bottom: 0.7rem;
 }
 
-.card p{
-  margin-bottom: 0.8rem;
+.card p {
+  margin-bottom: 0.85rem;
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(18px);}
-  to{opacity:1;transform:none;}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
 }
 
-.highlight{
-  margin-top: .3rem;
-  padding: .85rem;
+.highlight {
+  margin-top: 0.5rem;
+  padding: 0.9rem;
   border-radius: 15px;
   background: #ffe9f4;
   border: 1px dashed #ff7aa2;
 }
 
-/* grid cards on home page (these were looking like ugly links) */
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.mini-card{
-  display: block;
+/* ===============================
+   BUTTONS (IMPORTANT)
+   =============================== */
+.primary-btn,
+.heart-btn {
+  display: inline-block;
   text-decoration: none;
-  background: rgba(255,255,255,0.96);
-  border-radius: 16px;
-  padding: 0.75rem 0.8rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  color: #5b2449;
-  font-size: 0.9rem;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.mini-card h3{
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.mini-card p{
-  margin-bottom: 0;
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-.mini-card:hover{
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.16);
-}
-
-/* generic links inside cards */
-a{
-  color: inherit;
-}
-
-/* buttons */
-.heart-btn,
-.primary-btn{
   border: none;
   border-radius: 999px;
   padding: 0.9rem 1.8rem;
   font-size: 1rem;
-  background: linear-gradient(135deg,#ff7aa2,#ffb3c6);
-  color: white;
   font-weight: 600;
+  background: linear-gradient(135deg, #ff7aa2, #ffb3c6);
+  color: #fff;
   box-shadow: 0 10px 25px rgba(255,122,162,0.35);
-  text-decoration: none;
-  display: inline-block;
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
 }
 
-.heart-btn{
+.primary-btn:active,
+.heart-btn:active {
+  transform: scale(0.96);
+}
+
+/* pulsing heart button */
+.heart-btn {
   animation: pulse 1.4s infinite;
 }
 
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-  100%{transform:scale(1);}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
-.heart-btn:active,
-.primary-btn:active{
-  transform: scale(0.96) translateY(1px);
-}
-
-/* countdown */
-.countdown{
+/* ===============================
+   COUNTDOWN
+   =============================== */
+.countdown {
   display: flex;
   justify-content: center;
   gap: 0.6rem;
   margin: 1.2rem 0;
 }
 
-.time-box{
-  background: rgba(255,255,255,0.96);
+.time-box {
+  background: #fff;
   padding: 0.6rem 0.75rem;
   border-radius: 0.9rem;
   min-width: 60px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
 }
 
-.time-box span{
+.time-box span {
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-/* inputs */
-.input{
+/* ===============================
+   INPUT
+   =============================== */
+.input {
   margin-top: 0.7rem;
   padding: 0.6rem 0.8rem;
   border-radius: 999px;
@@ -226,25 +205,10 @@ a{
   font-weight: 600;
 }
 
-/* "next" link on each page */
-.next-link{
-  margin-top: 1.1rem;
-  text-align: right;
-  font-size: 0.9rem;
-}
-
-.next-link a{
-  text-decoration: none;
-  color: #b0175f;
-  font-weight: 600;
-}
-
-.next-link a::after{
-  content: " ➜";
-}
-
-/* video wrapper on song page */
-.video-wrapper{
+/* ===============================
+   VIDEO
+   =============================== */
+.video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -254,44 +218,50 @@ a{
   box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
 
-.video-wrapper iframe{
+.video-wrapper iframe {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-/* floating hearts (final page + app.js) */
-.floating-heart{
+/* ===============================
+   FLOATING HEARTS
+   =============================== */
+.floating-heart {
   position: fixed;
-  bottom:-25px;
+  bottom: -25px;
   animation: floatUp 5s linear;
   pointer-events: none;
 }
 
-@keyframes floatUp{
-  from{transform:translateY(0);opacity:1;}
-  to{transform:translateY(-120vh);opacity:0;}
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* footer */
-.footer{
+/* ===============================
+   FOOTER
+   =============================== */
+.footer {
   text-align: center;
   padding: 0.8rem 1rem 1.1rem;
   font-size: 0.8rem;
   opacity: 0.7;
 }
 
-.big-heart{
-  font-size: 3rem;
-  margin: 1rem 0;
-}
+/* =================================
+   SMALL HELPERS
+   ================================= */
+.center { text-align: center; }
+.big-heart { font-size: 3rem; margin: 1rem 0; }
+.small { font-size: 0.85rem; }
 
-.small{ font-size: 0.85rem; }
-
-@media (min-width:768px){
-  .header h1{ font-size: 2rem; }
-  .card{ padding: 1.6rem 1.5rem; }
+/* ===============================
+   DESKTOP TWEAKS
+   =============================== */
+@media (min-width: 768px) {
+  .header h1 { font-size: 2rem; }
+  .card { padding: 1.6rem 1.5rem; }
 }
