@@ -16,7 +16,7 @@
     <a href="index.html">Home</a>
     <a href="song.html">Our Song</a>
     <a href="game.html">Love Game</a>
-    <a href="countdown.html" class="active">Countdown</a>
+    <a href="countdown.html">Countdown</a>
     <a href="secret.html">Secret</a>
     <a href="final.html">Final Page</a>
   </nav>
@@ -24,6 +24,7 @@
   <main class="container fade-in">
     <section class="card center">
       <h2>Counting down to our next 10 January 💗</h2>
+
       <div class="countdown">
         <div class="time-box">
           <span id="days">0</span>
@@ -42,9 +43,15 @@
           <small>Seconds</small>
         </div>
       </div>
+
       <p class="highlight">
         No matter how many days pass, 10 January will always be “our” date. 💫
       </p>
+
+      <!-- NEXT BUTTON -->
+      <div style="margin-top:1rem;">
+        <a href="secret.html" class="primary-btn">Next ➜ Secret Zone 🔐</a>
+      </div>
     </section>
   </main>
 
@@ -56,10 +63,8 @@
     function getNextAnniversary() {
       const now = new Date();
       let year = now.getFullYear();
-      const targetThisYear = new Date(year, 0, 10, 0, 0, 0); // 10 Jan (month 0)
-      if (now > targetThisYear) {
-        year++;
-      }
+      const targetThisYear = new Date(year, 0, 10, 0, 0, 0); // 10 Jan
+      if (now > targetThisYear) year++;
       return new Date(year, 0, 10, 0, 0, 0);
     }
 
