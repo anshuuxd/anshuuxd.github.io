@@ -7,12 +7,14 @@
 }
 
 body{
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: linear-gradient(135deg,#ff9a9e,#fecfef,#fbc2eb,#a18cd1);
   background-size: 400% 400%;
   animation: bgMove 16s ease infinite;
   min-height: 100vh;
   color: #3a243b;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
 }
 
@@ -26,7 +28,7 @@ body{
 /* header */
 .header{
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 0.5rem;
 }
 
 .header h1{
@@ -35,6 +37,12 @@ body{
   border-radius: 20px;
   background: rgba(255,255,255,0.25);
   animation: glow 2s infinite alternate;
+  font-size: 1.6rem;
+}
+
+.header p{
+  margin-top: 0.25rem;
+  opacity: 0.8;
 }
 
 @keyframes glow{
@@ -48,6 +56,7 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   gap: .5rem;
+  padding: 0.7rem 0.5rem 0.4rem;
 }
 
 .nav a{
@@ -56,26 +65,47 @@ body{
   border-radius: 999px;
   background: white;
   color: #b0175f;
-  transition: transform .2s ease;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .nav a:hover{
-  transform: scale(1.12);
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
-/* cards */
+.nav a.active{
+  background: linear-gradient(135deg,#ff7aa2,#ffb3c6);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* layout */
 .container{
   max-width: 720px;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
   padding: 1rem;
+  flex: 1;
 }
 
 .card{
   background: rgba(255,255,255,.93);
   border-radius: 22px;
-  padding: 1.3rem;
-  box-shadow: 0 22px 45px rgba(255,0,128,.28);
+  padding: 1.3rem 1.1rem;
+  box-shadow: 0 22px 45px rgba(255,0,128,.18);
   animation: fadeUp .6s ease;
+}
+
+.card h2{
+  margin-bottom: 0.7rem;
+}
+
+.card p{
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 @keyframes fadeUp{
@@ -84,31 +114,156 @@ body{
 }
 
 .highlight{
-  margin-top: .7rem;
+  margin-top: .3rem;
   padding: .85rem;
   border-radius: 15px;
   background: #ffe9f4;
   border: 1px dashed #ff7aa2;
 }
 
+/* grid cards on home page (these were looking like ugly links) */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.mini-card{
+  display: block;
+  text-decoration: none;
+  background: rgba(255,255,255,0.96);
+  border-radius: 16px;
+  padding: 0.75rem 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  color: #5b2449;
+  font-size: 0.9rem;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.mini-card h3{
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.mini-card p{
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.mini-card:hover{
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+}
+
+/* generic links inside cards */
+a{
+  color: inherit;
+}
+
 /* buttons */
-.heart-btn{
+.heart-btn,
+.primary-btn{
   border: none;
   border-radius: 999px;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
   background: linear-gradient(135deg,#ff7aa2,#ffb3c6);
   color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(255,122,162,0.35);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.heart-btn{
   animation: pulse 1.4s infinite;
 }
 
 @keyframes pulse{
   0%{transform:scale(1);}
-  50%{transform:scale(1.1);}
+  50%{transform:scale(1.08);}
   100%{transform:scale(1);}
 }
 
-/* floating hearts */
+.heart-btn:active,
+.primary-btn:active{
+  transform: scale(0.96) translateY(1px);
+}
+
+/* countdown */
+.countdown{
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1.2rem 0;
+}
+
+.time-box{
+  background: rgba(255,255,255,0.96);
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.9rem;
+  min-width: 60px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.time-box span{
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* inputs */
+.input{
+  margin-top: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #ff9fb8;
+  outline: none;
+  text-align: center;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+}
+
+/* "next" link on each page */
+.next-link{
+  margin-top: 1.1rem;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.next-link a{
+  text-decoration: none;
+  color: #b0175f;
+  font-weight: 600;
+}
+
+.next-link a::after{
+  content: " ➜";
+}
+
+/* video wrapper on song page */
+.video-wrapper{
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.video-wrapper iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* floating hearts (final page + app.js) */
 .floating-heart{
   position: fixed;
   bottom:-25px;
@@ -119,4 +274,24 @@ body{
 @keyframes floatUp{
   from{transform:translateY(0);opacity:1;}
   to{transform:translateY(-120vh);opacity:0;}
+}
+
+/* footer */
+.footer{
+  text-align: center;
+  padding: 0.8rem 1rem 1.1rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.big-heart{
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.small{ font-size: 0.85rem; }
+
+@media (min-width:768px){
+  .header h1{ font-size: 2rem; }
+  .card{ padding: 1.6rem 1.5rem; }
 }
